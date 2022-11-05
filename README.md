@@ -11,18 +11,19 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Lähdin ratkaisemaan ensimmäistä tehtävää for-looppia hyödyntäen: 
 
-` for (var i = 0; i < 50; i++) {
+```
+for (var i = 0; i < 50; i++) {
         console.log(A(0,1001));
     }
-`
+```
 
 Tässä looppissa kutsutaan A-funktiota 50 kertaa ja tulostetaan ne konsoliin.
 Tässä A-funktiossa luodaan satunnainen luku. Tämä funktio on otettu myös täältä nettisivulta: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-`
+```
 function A(min,max){
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max-min) + min);
 }
-`
+```
