@@ -1,4 +1,4 @@
-# nordea-assingment
+# nordea-assignment
 
 This document is used for Nordea OneDigital Graduate Program coding assignments.
 
