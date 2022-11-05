@@ -1,15 +1,14 @@
 # nordea-assingment
 
-This document is used for Nordea coding assignments.
+This document is used for Nordea OneDigital Graduate Program coding assignments.
 
 ## Task 1
 
-Tehtävässä tarkoituksena tulostaa consoleen 50 satunnaista kokonaislukua 0 ja 1000 väliltä. Valitsin javascriptin koska se kuuluu C-suvun kieliin ja on yleisempi kuin C#. 
+In task 1 50 random numbers between 0 and 1000 are generated to print the output to console. I chose to use Javascript, as it belongs to C languages and might be more common than C# of which I have little experience from.
 
-Selvitin miten javascriptillä luodaan satunnaisia kokonaislukuja
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+I began by finding out how to generate random numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-Lähdin ratkaisemaan ensimmäistä tehtävää for-looppia hyödyntäen: 
+Then I started to solve the first task using a for loop:
 
 ```
 for (var i = 0; i < 50; i++) {
@@ -17,8 +16,7 @@ for (var i = 0; i < 50; i++) {
     }
 ```
 
-Tässä looppissa kutsutaan A-funktiota 50 kertaa ja tulostetaan ne konsoliin.
-Tässä A-funktiossa luodaan satunnainen luku. Tämä funktio on otettu myös tältä nettisivulta: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+In this loop A-function is called for 50 times and the output is presented in the console. The A-function generates a random number. This function is created with help from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 ```
 function A(min,max){
@@ -30,11 +28,9 @@ function A(min,max){
 
 ## Task 2
 
-Tehtävässä on tarkoituksena tulostaa ykköstehtävän 50 satunnaisesti luotua numeroa txt-fileen.
+In this task the 50 random numbers from task 1 are supposed to be written to a txt-file.
 
-Lähdin etsimään outputin tulostusta txt fileen, ja löysin fs.writefile -funktion 
-https://stackoverflow.com/questions/2496710/writing-to-files-in-node-js -sivulta, jonka
-avulla luvut tulostuvat consolen sijasta txt fileen.
+I began by researching writing output to a txt file, and found a fs.writefile-function from: https://stackoverflow.com/questions/2496710/writing-to-files-in-node-js.
 
 ```
 let result = "";
@@ -42,9 +38,7 @@ let result = "";
         result = result + (A(0,1001)) + " ";
     }
 ```
-
-Tässä ykköstehtävän logiikkaa hyödyntäen tallennetaan result-muuttujaan satunnaisesti luodut luvut. Seuraavaksi aiemmin mainitulta stackoverflow-sivulta otin mallia, kuinka
-txt-tiedostoon kirjoitetaan tekstiä:
+Here by using the syntax from task 1 the randomly generated numbers are saved into a result-variable. Next I used the information from above about writing into a txt-file:
 
 ```
 fs.writeFile("task-2.txt", result, (err) => {
@@ -56,10 +50,9 @@ fs.writeFile("task-2.txt", result, (err) => {
 
 ## Task 3
 
-Tässä tehtävässä hyödynnetään aiemmissa vaiheissa luotuja satunnaislukuja, ja tulostetaan txt-fileen vain parilliset luvut suuruusjärjestyksessä pienimmästä suurimpaan.
+In the third task I used the randomly generated numbers from previous tasks and write only even numbers in ascending order into the txt-file.
 
-Käyttäen for loopia loin satunnaiset luvut kuten aiemmissa vaiheissa, nyt tallennan to result-array. Selvitin miten javascript syntaksilla tarkistetaan onko luku parillinen (https://stackoverflow.com/questions/6211613/testing-whether-a-value-is-odd-or-even), ja hyödynsin sitä if-lauseessa loopin sisällä. Tässä myös sama A-funktio kuin ykköstehtävässä. 
-
+Using the for loop I generated the random numbers like in the previous tasks and saved them to result-array. I found out how to solve whether a number is an even or an odd one (https://stackoverflow.com/questions/6211613/testing-whether-a-value-is-odd-or-even) and utilized it in an if-condition inside the loop. Here I use the same A-function as in previous tasks.
 ```
 let result2 = [];
  for (var i = 0; i < 50; i++) {
@@ -70,13 +63,13 @@ let result2 = [];
     }
 ```
 
-Seuraavaksi selvitin miten numerot saadaan tulostumaan suuruusjärjestyksessä tältä sivulta: https://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly
+Next I found out how to write the numbers in an ascending order (https://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly)
 
 ```
     result2.sort((a, b)=>{return a-b});
 ```
 
-Tämän jälkeen samaa writefile-funktiota käyttäen luvut kirjoitetaan txt-fileen:
+After which using the same writefile-function the numbers are written into the txt-file:
 
 ```
  fs.writeFile("task-3.txt", result2, (err) => {
